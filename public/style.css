@@ -1,0 +1,66 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #1a1a1a;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+#log {
+  color: #555;
+  min-height: 1.2em;
+}
+
+#countdown {
+  color: #0969da;
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+td.detail {
+  color: #666;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.status.pending { color: #999; }
+.status.running { color: #b8860b; font-weight: 600; }
+.status.success { color: #1a7f37; font-weight: 600; }
+.status.failed { color: #c0392b; font-weight: 600; }
+.status.skipped { color: #6e7781; font-style: italic; }
+
+#summary {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #f6f8fa;
+}

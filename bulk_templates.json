@@ -1,0 +1,152 @@
+[
+  {
+    "templateid": "l1engineerbillnotification",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been submitted by {{4}} for processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "infobillsubmittednotification",
+    "sms_template": "Update: {#var#} Bill {#var#} has been submitted by {#var#} for processing. - APTRANSCO - GOVT AP",
+    "email_template": "Update: {#var#} Bill {#var#} has been submitted by {#var#} for processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Update: {{1}} Bill {{2}} has been submitted by {{3}} for processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillprocessedl2",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} for an amount of Rs.{#var#} has been processed and submitted to {#var#} ({#var#}) for verification. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} for an amount of Rs.{#var#} has been processed and submitted to {#var#} ({#var#}) for verification. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} for an amount of Rs.{{4}} has been processed and submitted to {{5}} ({{6}}) for verification. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l2engineerverificationrequest",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your verification. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your verification. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been submitted by {{4}} for your verification. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillverifiedl3",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been verified and submitted to {#var#} ({#var#}) for approval. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been verified and submitted to {#var#} ({#var#}) for approval. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been verified and submitted to {{4}} ({{5}}) for approval. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l3engineerapprovalrequest",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your approval. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your approval. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been submitted by {{4}} for your approval. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillapprovedl4",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been approved and submitted to {#var#} ({#var#}) for review. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been approved and submitted to {#var#} ({#var#}) for review. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been approved and submitted to {{4}} ({{5}}) for review. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l4engineerreviewrequest",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your review. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted by {#var#} for your review. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been submitted by {{4}} for your review. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillreviewedaccounts",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been reviewed and forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been reviewed and forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been reviewed and forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l5accountsinvoiceprocessing",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been forwarded by {#var#} ({#var#}) for your invoice processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been forwarded by {#var#} ({#var#}) for your invoice processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been forwarded by {{4}} ({{5}}) for your invoice processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "infobillforwardedaccounts",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been forwarded to Accounts for invoice processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l6invoiceparked",
+    "sms_template": "Dear {#var#}, Invoice for {#var#} Bill {#var#} has been parked and submitted for review/posting/LOA generation. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Invoice for {#var#} Bill {#var#} has been parked and submitted for review/posting/LOA generation. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Invoice for {{2}} Bill {{3}} has been parked and submitted for review/posting/LOA generation. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "l7invoiceposted",
+    "sms_template": "Dear {#var#}, Invoice for {#var#} Bill {#var#} has been posted and submitted for posting/LOA generation. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Invoice for {#var#} Bill {#var#} has been posted and submitted for posting/LOA generation. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Invoice for {{2}} Bill {{3}} has been posted and submitted for posting/LOA generation. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillhqpayment",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} for an amount of Rs.{#var#} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} for an amount of Rs.{#var#} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} for an amount of Rs.{{4}} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineerbillhqpayment",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been submitted to HQ for payment processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorpaymentreleased",
+    "sms_template": "Dear {#var#}, payment against {#var#} Bill {#var#} for an amount of Rs.{#var#} has been released successfully. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, payment against {#var#} Bill {#var#} for an amount of Rs.{#var#} has been released successfully. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, payment against {{2}} Bill {{3}} for an amount of Rs.{{4}} has been released successfully. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineerpaymentreleased",
+    "sms_template": "Dear {#var#}, payment against {#var#} Bill {#var#} has been released successfully. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, payment against {#var#} Bill {#var#} has been released successfully. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, payment against {{2}} Bill {{3}} has been released successfully. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendormissingdocuments",
+    "sms_template": "Dear {#var#}, additional documents are requested for your {#var#} Bill {#var#}. Please log in to the Bill Tracking Portal for details. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, additional documents are requested for your {#var#} Bill {#var#}. Please log in to the Bill Tracking Portal for details. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, additional documents are requested for your {{2}} Bill {{3}}. Please log in to the Bill Tracking Portal for details. Remarks: {{4}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineermissingdocuments",
+    "sms_template": "Additional documents have been requested from the vendor for {#var#} Bill {#var#} by {#var#}. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Additional documents have been requested from the vendor for {#var#} Bill {#var#} by {#var#}. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Additional documents have been requested from the vendor for {{1}} Bill {{2}} by {{3}}. Remarks: {{4}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillrejected",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been rejected. Please log in to the Bill Tracking Portal for details. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been rejected. Please log in to the Bill Tracking Portal for details. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been rejected. Please log in to the Bill Tracking Portal for details. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineerbillrejected",
+    "sms_template": "Update: {#var#} Bill {#var#} submitted by {#var#} has been rejected. - APTRANSCO - GOVT AP",
+    "email_template": "Update: {#var#} Bill {#var#} submitted by {#var#} has been rejected. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Update: {{1}} Bill {{2}} submitted by {{3}} has been rejected. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillresubmitted",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been resubmitted successfully and is under review. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been resubmitted successfully and is under review. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been resubmitted successfully and is under review. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineerbillresubmitted",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} has been resubmitted by the vendor. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} has been resubmitted by the vendor. Remarks: {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} has been resubmitted by the vendor. Remarks: {{4}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorbillclosed",
+    "sms_template": "Dear {#var#}, your {#var#} Bill {#var#} has been processed successfully and closed. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your {#var#} Bill {#var#} has been processed successfully and closed. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your {{2}} Bill {{3}} has been processed successfully and closed. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "engineerbillclosed",
+    "sms_template": "Dear {#var#}, {#var#} Bill {#var#} submitted by {#var#} has been processed successfully and closed. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} Bill {#var#} submitted by {#var#} has been processed successfully and closed. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} Bill {{3}} submitted by {{4}} has been processed successfully and closed. - APTRANSCO - GOVT AP"
+  }
+]

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WhatsApp Template Creator</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <h1>APTRANSCO WhatsApp Template Creator</h1>
+  <div class="controls">
+    <button id="startBtn">Start Creating Templates</button>
+    <button id="pauseBtn" disabled>Pause</button>
+    <button id="stopBtn" disabled>Stop</button>
+  </div>
+  <p id="log"></p>
+  <p id="countdown"></p>
+  <table id="table">
+    <thead>
+      <tr><th>#</th><th>Template</th><th>Status</th><th>Detail</th></tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div id="summary"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
