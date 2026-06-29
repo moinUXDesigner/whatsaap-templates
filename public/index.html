@@ -7,6 +7,17 @@
 </head>
 <body>
   <h1>APTRANSCO WhatsApp Template Creator</h1>
+
+  <div class="source-toggle">
+    <label><input type="radio" name="source" value="builtin" checked /> Use built-in list (templates.js)</label>
+    <label><input type="radio" name="source" value="upload" /> Upload custom JSON file</label>
+  </div>
+  <div id="uploadSection" class="upload-section" hidden>
+    <input type="file" id="fileInput" accept="application/json,.json" />
+    <button id="loadFileBtn">Load Templates</button>
+    <span id="uploadStatus"></span>
+  </div>
+
   <div class="controls">
     <button id="startBtn">Start Creating Templates</button>
     <button id="pauseBtn" disabled>Pause</button>

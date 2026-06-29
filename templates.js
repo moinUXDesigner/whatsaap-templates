@@ -129,4 +129,14 @@ module.exports = [
     body: "Dear {{1}}, {{2}} Bill {{3}} submitted by {{4}} has been processed successfully and closed. - APTRANSCO - GOVT AP",
     example: ["Officer Seven", "Material", "MB-2026-00035", "Sample Vendor Pvt Ltd"],
   },
+  {
+    name: "vendorbillprocessedl2",
+    body: "Dear {{1}}, your {{2}} Bill {{3}} for an amount of Rs.{{4}} has been processed and submitted to {{5}} ({{6}}) for verification. - APTRANSCO - GOVT AP",
+    example: ["Amara Raja Power Systems Limited", "Material", "MB-2026-00035", "1,25,000", "Chandra Mouli Thodeti", "DEE-2"]
+  },
+  {
+    name: "vendormissingdocuments",
+    body: "Dear {{1}}, additional documents are requested for your {{2}} Bill {{3}}. Please log in to the Bill Tracking Portal for details. Remarks: {{4}}. - APTRANSCO - GOVT AP",
+    example: ["Amara Raja Power Systems Limited", "Material", "MB-2026-00035", "GST invoice copy missing"]
+  }
 ];

@@ -5,8 +5,15 @@ const stopBtn = document.getElementById("stopBtn");
 const logEl = document.getElementById("log");
 const countdownEl = document.getElementById("countdown");
 const summaryEl = document.getElementById("summary");
+const sourceRadios = document.querySelectorAll('input[name="source"]');
+const uploadSection = document.getElementById("uploadSection");
+const fileInput = document.getElementById("fileInput");
+const loadFileBtn = document.getElementById("loadFileBtn");
+const uploadStatus = document.getElementById("uploadStatus");
 
 const rows = new Map();
+let currentSource = "builtin";
+let hasUploadedList = false;
 
 function setRow(name, state, detail) {
   const tr = rows.get(name);
@@ -45,17 +52,20 @@ function setRunningControls(running) {
   }
 }
 
-async function loadTemplates() {
-  const res = await fetch("/api/templates");
-  const templates = await res.json();
+function renderTemplateList(list) {
   tbody.innerHTML = "";
   rows.clear();
-  templates.forEach((t, i) => {
+  list.forEach((t, i) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${i + 1}</td><td>${t.name}</td><td class="status pending">pending</td><td class="detail"></td>`;
     tbody.appendChild(tr);
     rows.set(t.name, tr);
   });
+}
+
+async function loadTemplates() {
+  const res = await fetch("/api/templates");
+  renderTemplateList(await res.json());
 }
 
 function applyResult(result) {
@@ -118,12 +128,68 @@ function connectEvents() {
 startBtn.addEventListener("click", async () => {
   startBtn.disabled = true;
   summaryEl.innerHTML = "";
-  const res = await fetch("/api/start", { method: "POST" });
-  if (res.status === 409) {
+  const res = await fetch("/api/start", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ source: currentSource }),
+  });
+  if (res.status !== 202) {
     const data = await res.json();
     alert(data.error);
-    startBtn.disabled = false;
+    startBtn.disabled = currentSource === "upload" && !hasUploadedList;
   }
+});
+
+sourceRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    currentSource = document.querySelector('input[name="source"]:checked').value;
+    uploadSection.hidden = currentSource !== "upload";
+    if (currentSource === "builtin") {
+      loadTemplates();
+      startBtn.disabled = false;
+    } else if (hasUploadedList) {
+      startBtn.disabled = false;
+    } else {
+      tbody.innerHTML = "";
+      rows.clear();
+      startBtn.disabled = true;
+    }
+  });
+});
+
+loadFileBtn.addEventListener("click", () => {
+  const file = fileInput.files[0];
+  if (!file) {
+    uploadStatus.textContent = "Choose a JSON file first.";
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = async () => {
+    let parsed;
+    try {
+      parsed = JSON.parse(reader.result);
+    } catch {
+      uploadStatus.textContent = "Invalid JSON file.";
+      return;
+    }
+    const res = await fetch("/api/templates/upload", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parsed),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      uploadStatus.textContent = data.error || "Upload failed.";
+      return;
+    }
+    hasUploadedList = true;
+    renderTemplateList(data.templates);
+    uploadStatus.textContent = `Loaded ${data.count} template(s).${
+      data.skipped ? ` (${data.skipped} skipped — missing templateid/whatsapp_template)` : ""
+    }`;
+    startBtn.disabled = false;
+  };
+  reader.readAsText(file);
 });
 
 pauseBtn.addEventListener("click", async () => {

@@ -19,12 +19,44 @@ const PUBLIC_DIR = path.join(__dirname, "public");
 const RESULTS_PATH = path.join(__dirname, "results.json");
 const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css" };
 
-let job = { running: false, results: [], paused: false, stopRequested: false, remainingMs: null };
+let job = { running: false, results: [], paused: false, stopRequested: false, remainingMs: null, total: templates.length };
 let clients = [];
+let uploadedTemplates = null; // set via POST /api/templates/upload, in the bulk_templates.json shape converted to {name, body, example}
 
 function broadcast(event) {
   const payload = `data: ${JSON.stringify(event)}\n\n`;
   for (const res of clients) res.write(payload);
+}
+
+function readJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let raw = "";
+    req.on("data", (chunk) => (raw += chunk));
+    req.on("end", () => {
+      try {
+        resolve(raw ? JSON.parse(raw) : {});
+      } catch (err) {
+        reject(err);
+      }
+    });
+    req.on("error", reject);
+  });
+}
+
+// Derives example values for a {{n}}-placeholder body when the source data
+// (bulk_templates.json shape) has no example field of its own.
+function deriveExample(body) {
+  const numbers = [...new Set([...body.matchAll(/\{\{(\d+)\}\}/g)].map((m) => Number(m[1])))].sort((a, b) => a - b);
+  return numbers.map((n) => `Sample ${n}`);
+}
+
+// Converts an uploaded bulk_templates.json-shaped entry into the
+// {name, body, example} shape the WhatsApp creation API call expects.
+function convertUploadedEntry(entry) {
+  const name = String(entry.templateid || "").trim();
+  const body = String(entry.whatsapp_template || "").trim();
+  if (!name || !body) return null;
+  return { name, body, example: deriveExample(body) };
 }
 
 function loadPreviousResults() {
@@ -67,10 +99,10 @@ async function waitInterruptible(ms) {
   }
 }
 
-async function runJob() {
+async function runJob(templateList) {
   const previouslySucceeded = new Set(loadPreviousResults().filter((r) => r.ok).map((r) => r.name));
-  job = { running: true, results: [], paused: false, stopRequested: false, remainingMs: null };
-  broadcast({ type: "start", total: templates.length });
+  job = { running: true, results: [], paused: false, stopRequested: false, remainingMs: null, total: templateList.length };
+  broadcast({ type: "start", total: templateList.length });
 
   try {
     if (!CONFIG.WABA_ID || !CONFIG.USERNAME || !CONFIG.PASSWORD) {
@@ -79,9 +111,9 @@ async function runJob() {
 
     broadcast({ type: "log", message: "Fetching access token..." });
     const accessToken = await getAccessToken();
-    broadcast({ type: "log", message: `Got access token. Creating ${templates.length} templates...` });
+    broadcast({ type: "log", message: `Got access token. Creating ${templateList.length} templates...` });
 
-    for (const tpl of templates) {
+    for (const tpl of templateList) {
       if (job.stopRequested) break;
       await waitInterruptible(0); // blocks here while paused, before touching the next template
       if (job.stopRequested) break;
@@ -118,7 +150,7 @@ async function runJob() {
     }
 
     const passed = job.results.filter((r) => r.ok).length;
-    const payload = { passed, total: templates.length, results: job.results };
+    const payload = { passed, total: templateList.length, results: job.results };
     broadcast(job.stopRequested ? { type: "stopped", ...payload } : { type: "done", ...payload });
   } catch (err) {
     broadcast({ type: "error", message: err.message });
@@ -152,8 +184,31 @@ const server = http.createServer((req, res) => {
   const { pathname } = new URL(req.url, `http://${req.headers.host}`);
 
   if (pathname === "/api/templates" && req.method === "GET") {
+    const source = new URL(req.url, `http://${req.headers.host}`).searchParams.get("source");
+    const list = source === "upload" ? uploadedTemplates || [] : templates;
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(templates.map((t) => ({ name: t.name }))));
+    res.end(JSON.stringify(list.map((t) => ({ name: t.name }))));
+    return;
+  }
+
+  if (pathname === "/api/templates/upload" && req.method === "POST") {
+    readJsonBody(req)
+      .then((parsed) => {
+        if (!Array.isArray(parsed)) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Expected a JSON array of templates." }));
+          return;
+        }
+        const converted = parsed.map(convertUploadedEntry).filter(Boolean);
+        const skipped = parsed.length - converted.length;
+        uploadedTemplates = converted;
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ count: converted.length, skipped, templates: converted.map((t) => ({ name: t.name })) }));
+      })
+      .catch(() => {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Invalid JSON file." }));
+      });
     return;
   }
 
@@ -165,7 +220,7 @@ const server = http.createServer((req, res) => {
         paused: job.paused,
         remainingMs: job.remainingMs,
         results: job.results,
-        total: templates.length,
+        total: job.total,
       })
     );
     return;
@@ -177,9 +232,23 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify({ error: "A run is already in progress." }));
       return;
     }
-    runJob();
-    res.writeHead(202, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ started: true }));
+    readJsonBody(req)
+      .then((body) => {
+        const source = body.source === "upload" ? "upload" : "builtin";
+        const list = source === "upload" ? uploadedTemplates : templates;
+        if (!list || list.length === 0) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: source === "upload" ? "No file uploaded yet." : "No built-in templates found." }));
+          return;
+        }
+        runJob(list);
+        res.writeHead(202, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ started: true }));
+      })
+      .catch(() => {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Invalid request body." }));
+      });
     return;
   }
 

@@ -6,6 +6,24 @@ body {
   color: #1a1a1a;
 }
 
+.source-toggle {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.upload-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#uploadStatus {
+  font-size: 0.9rem;
+  color: #555;
+}
+
 .controls {
   display: flex;
   gap: 0.5rem;
