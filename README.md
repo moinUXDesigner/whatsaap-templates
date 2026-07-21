@@ -36,6 +36,14 @@ template with that name already exists and skips it if so — `results.json`
 is only a fallback/report, not the source of truth (see `lib.js`'s
 `resolveTemplate`).
 
+While `server.js` is running, it also polls every template's live status
+(every `WA_APPROVAL_POLL_MS`, default 3 min) and, the moment one flips from
+`PENDING` to `APPROVED`, sends that template as a real WhatsApp message to
+`WA_TEST_NUMBER` — proof it actually works end-to-end. (WhatsApp requires an
+approved template to message someone who hasn't messaged first, so this
+re-sends the template itself with its `example` values rather than free
+text.) Leave `WA_TEST_NUMBER` blank in `.env` to disable this.
+
 ### CLI
 
 ```

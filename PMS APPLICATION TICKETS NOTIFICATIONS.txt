@@ -1,0 +1,18 @@
+PMS APPLICATION TICKETS RELATED NOTIFICATIONS:
+=============================================
+
+1.aarempticketraise:1777178409907112985
+Dear {#var#}, {#var#} {#var#} your ticket is forwarded to {#var#},{#var#}-APTRANSCO-GOVT AP
+
+Example: Dear Varun, AEE 1073080 your ticket is forwarded to VENKATA NARAYANA VEMULAPATI,PO/Engineering Services-APTRANSCO-GOVT AP
+
+2.aaradminticketrecieved:1777178409916462869
+Dear {#var#},{#var#} you have received the ticket from {#var#},{#var#}{#var#}-APTRANSCO-GOVT AP
+
+Example: Dear VENKATA NARAYANA VEMULAPATI,PO/Engineering Services you have received the ticket from Varun, 
+AEE 1073080-APTRANSCO-GOVT AP
+
+3.aarempticketstatus:1777178409922714069
+Dear {#var#},{#var#}{#var#} your ticket status is updated please check in "Employee One PMS" portal-APTRANSCO-GOVT AP
+
+Example: Dear Varun, AEE 1073080 your ticket status is updated please check in "Employee One PMS" portal-APTRANSCO-GOVT AP

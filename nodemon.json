@@ -1,0 +1,9 @@
+{
+  "ignore": [
+    "results.json",
+    "missed.json",
+    "data/*",
+    ".auth/*",
+    "public/*"
+  ]
+}

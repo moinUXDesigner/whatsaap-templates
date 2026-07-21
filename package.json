@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp-template-creator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "portal:login": "node scripts/portal-login.js",
+    "scrape:groups": "node scripts/scrape-groups.js",
+    "scrape:contacts": "node scripts/scrape-contacts.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "playwright": "^1.48.0"
+  }
+}

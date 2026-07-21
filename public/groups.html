@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WhatsApp Groups</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="wide">
+  <h1>APTRANSCO WhatsApp Groups</h1>
+  <p><a href="/">&larr; Back to Template Creator</a></p>
+
+  <input type="search" id="searchInput" placeholder="Search groups (any column)..." />
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Group Name</th>
+        <th>User Count</th>
+        <th>Variable Count</th>
+        <th>Upload Status</th>
+        <th>Created On</th>
+        <th>Updated On</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <p id="emptyState" hidden>No groups found. Run <code>npm run scrape:groups</code> first.</p>
+  <script src="/groups.js"></script>
+</body>
+</html>

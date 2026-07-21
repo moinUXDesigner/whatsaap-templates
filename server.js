@@ -4,20 +4,33 @@
  *
  * SETUP / RUN
  * ------------
- *   node --env-file=.env server.js
+ *   node server.js
  *   open http://localhost:4173
  */
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { CONFIG, getAccessToken, resolveTemplate, sleep } = require("./lib.js");
+// Loads .env from cwd automatically so plain `node server.js` works, not just
+// `node --env-file=.env server.js`. No-op if .env is missing.
+try {
+  process.loadEnvFile();
+} catch {}
+
+const { CONFIG, getAccessToken, getTemplateStatus, listAllTemplates, sendTemplateMessage, resolveTemplate, sleep } = require("./lib.js");
 const templates = require("./templates.js");
 
 const PORT = Number(process.env.PORT) || 4173;
 const PUBLIC_DIR = path.join(__dirname, "public");
 const RESULTS_PATH = path.join(__dirname, "results.json");
+const GROUPS_JSON_PATH = path.join(__dirname, "data", "groups.json");
+const CONTACTS_DIR = path.join(__dirname, "data", "contacts");
 const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css" };
+
+// Receives a live template message the moment a pending template flips to
+// APPROVED (see startApprovalPolling below). No phone number in source.
+const WA_TEST_NUMBER = process.env.WA_TEST_NUMBER || "";
+const WA_APPROVAL_POLL_MS = Number(process.env.WA_APPROVAL_POLL_MS) || 180000;
 
 let job = { running: false, results: [], paused: false, stopRequested: false, remainingMs: null, total: templates.length };
 let clients = [];
@@ -26,6 +39,72 @@ let uploadedTemplates = null; // set via POST /api/templates/upload, in the bulk
 function broadcast(event) {
   const payload = `data: ${JSON.stringify(event)}\n\n`;
   for (const res of clients) res.write(payload);
+}
+
+// The "already exists" GET response nests the actual template (with its
+// real approval status - PENDING/APPROVED/REJECTED, category, id) inside
+// `data.data[0]`.
+function getExistingTemplate(statusData) {
+  return statusData && Array.isArray(statusData.data) ? statusData.data[0] : null;
+}
+
+function describeExisting(statusData) {
+  const existing = getExistingTemplate(statusData);
+  if (!existing) return "already exists on WhatsApp";
+  return `already exists - id: ${existing.id || "n/a"}, status: ${existing.status || "UNKNOWN"}`;
+}
+
+// name -> last-seen WhatsApp status ("PENDING", "APPROVED", ...), used to
+// detect PENDING -> APPROVED transitions across polls. Starts empty, so the
+// first poll only records a baseline and never fires a false-positive send
+// for templates that were already APPROVED before the server started.
+const templateStatusByName = new Map();
+
+async function pollTemplateApprovals() {
+  let accessToken;
+  try {
+    accessToken = await getAccessToken();
+  } catch (err) {
+    console.error("Approval poll: failed to get access token -", err.message);
+    return;
+  }
+
+  for (const tpl of templates) {
+    let status;
+    try {
+      const result = await getTemplateStatus(tpl.name, accessToken);
+      if (result.exists !== true) continue; // not created yet, or check inconclusive - nothing to compare
+      const existing = getExistingTemplate(result.data);
+      status = existing ? existing.status : null;
+    } catch {
+      continue;
+    }
+    if (!status) continue;
+
+    const previous = templateStatusByName.get(tpl.name);
+    if (previous === "PENDING" && status === "APPROVED") {
+      console.log(`Approval poll: ${tpl.name} is now APPROVED - sending test message to ${WA_TEST_NUMBER}`);
+      try {
+        const sendResult = await sendTemplateMessage(tpl, WA_TEST_NUMBER, accessToken);
+        broadcast({ type: "approval", name: tpl.name, sentTo: WA_TEST_NUMBER, ok: sendResult.ok });
+        if (!sendResult.ok) console.error(`Approval poll: test message send failed for ${tpl.name} -`, JSON.stringify(sendResult.data));
+      } catch (err) {
+        console.error(`Approval poll: failed to send test message for ${tpl.name} -`, err.message);
+      }
+    }
+    templateStatusByName.set(tpl.name, status);
+  }
+}
+
+async function startApprovalPolling() {
+  if (!CONFIG.WABA_ID || !CONFIG.USERNAME || !CONFIG.PASSWORD) return; // no creds - can't poll
+  if (!WA_TEST_NUMBER) {
+    console.log("Approval poll: WA_TEST_NUMBER not set in .env - skipping auto test-message notifications.");
+    return;
+  }
+  await pollTemplateApprovals(); // baseline snapshot; nothing fires on this first pass
+  console.log(`Approval poll: baseline captured for ${templateStatusByName.size} template(s). Checking every ${WA_APPROVAL_POLL_MS}ms.`);
+  setInterval(pollTemplateApprovals, WA_APPROVAL_POLL_MS);
 }
 
 function readJsonBody(req) {
@@ -129,7 +208,7 @@ async function runJob(templateList) {
           state: result.skipped ? "skipped" : result.ok ? "success" : "failed",
           detail: result.skipped
             ? result.reason === "exists"
-              ? "already exists on WhatsApp"
+              ? describeExisting(result.data)
               : "assumed already created (from previous results.json — API check inconclusive)"
             : result.ok
               ? `id: ${result.data.id || "n/a"}, status: ${result.data.status || "PENDING"}`
@@ -188,6 +267,37 @@ const server = http.createServer((req, res) => {
     const list = source === "upload" ? uploadedTemplates || [] : templates;
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(list.map((t) => ({ name: t.name }))));
+    return;
+  }
+
+  if (pathname === "/api/templates/all" && req.method === "GET") {
+    (async () => {
+      if (!CONFIG.WABA_ID || !CONFIG.USERNAME || !CONFIG.PASSWORD) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Missing WA_WABA_ID, WA_USERNAME, or WA_PASSWORD. Check your .env file." }));
+        return;
+      }
+      try {
+        const accessToken = await getAccessToken();
+        const all = await listAllTemplates(accessToken);
+        const rows = all.map((t) => {
+          const body = (t.components || []).find((c) => c.type === "BODY");
+          return {
+            name: t.name,
+            status: t.status,
+            category: t.category,
+            language: t.language,
+            id: t.id,
+            body: body ? body.text : "",
+          };
+        });
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(rows));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    })();
     return;
   }
 
@@ -288,6 +398,34 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (pathname === "/api/groups" && req.method === "GET") {
+    fs.readFile(GROUPS_JSON_PATH, "utf8", (err, data) => {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(err ? "[]" : data); // no scrape run yet -> empty list, not an error
+    });
+    return;
+  }
+
+  if (pathname.startsWith("/api/groups/") && pathname.endsWith("/contacts") && req.method === "GET") {
+    const slug = decodeURIComponent(pathname.slice("/api/groups/".length, -"/contacts".length));
+    const filePath = path.join(CONTACTS_DIR, `${slug}.json`);
+    if (!filePath.startsWith(CONTACTS_DIR)) {
+      res.writeHead(403);
+      res.end("Forbidden");
+      return;
+    }
+    fs.readFile(filePath, "utf8", (err, data) => {
+      if (err) {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: `No contacts file for group "${slug}". Run the scraper.` }));
+        return;
+      }
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(data);
+    });
+    return;
+  }
+
   if (pathname === "/api/events" && req.method === "GET") {
     res.writeHead(200, {
       "Content-Type": "text/event-stream",
@@ -307,4 +445,5 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`Template creator UI running at http://localhost:${PORT}`);
+  startApprovalPolling();
 });

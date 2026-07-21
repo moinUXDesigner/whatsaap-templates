@@ -8,10 +8,12 @@ const ENDPOINTS = {
   production: {
     TOKEN_URL: "https://auth.aclwhatsapp.com/realms/ipmessaging/protocol/openid-connect/token",
     BASE_URL: "https://api.aclwhatsapp.com",
+    MESSAGES_URL: "https://api.aclwhatsapp.com/pull-platform-receiver/v2/wa/messages",
   },
   uat: {
     TOKEN_URL: "https://apiuat.aclwhatsapp.com/auth/realms/ipmessaging/protocol/openid-connect/token",
     BASE_URL: "https://apiuat.aclwhatsapp.com",
+    MESSAGES_URL: "https://apiuat.aclwhatsapp.com/pull-platform-receiver/v2/wa/messages",
   },
 };
 
@@ -19,10 +21,10 @@ const CONFIG = {
   WABA_ID: process.env.WA_WABA_ID || "",
   USERNAME: process.env.WA_USERNAME || "",
   PASSWORD: process.env.WA_PASSWORD || "",
-  DELAY_MS: Number(process.env.WA_DELAY_MS) || 180000, // pause between requests to stay under rate limits
+  DELAY_MS: Number(process.env.WA_DELAY_MS) || 540000, // pause between requests to stay under rate limits
 };
 
-const { TOKEN_URL, BASE_URL } = ENDPOINTS[ENV];
+const { TOKEN_URL, BASE_URL, MESSAGES_URL } = ENDPOINTS[ENV];
 
 // All templates are transactional bill-status notifications -> Utility category
 // (ACL/Sinch docs use Title-case enum values: "Marketing" / "Utility")
@@ -54,20 +56,19 @@ async function getAccessToken() {
 }
 
 function buildPayload(tpl) {
+  const bodyComponent = { type: "BODY", text: tpl.body };
+  // Meta rejects an `example` on a BODY with no {{n}} placeholders - only attach
+  // it when there's at least one variable to fill.
+  if (tpl.example && tpl.example.length > 0) {
+    bodyComponent.example = { body_text: [tpl.example] };
+  }
+
   return {
     name: tpl.name,
     language: LANGUAGE,
     category: CATEGORY,
     allow_category_change: true, // lets Meta auto-correct category instead of rejecting outright
-    components: [
-      {
-        type: "BODY",
-        text: tpl.body,
-        example: {
-          body_text: [tpl.example],
-        },
-      },
-    ],
+    components: [bodyComponent],
   };
 }
 
@@ -86,6 +87,24 @@ async function createTemplate(tpl, accessToken) {
 
   const data = await res.json().catch(() => ({}));
   return { ok: res.ok, status: res.status, data, payload };
+}
+
+// Lists every template that actually exists in the WABA (not just the ones
+// defined locally in templates.js), following Meta's cursor-based `paging.next`
+// links until exhausted.
+async function listAllTemplates(accessToken) {
+  let url = `${BASE_URL}/access-api/v1/wa/${CONFIG.WABA_ID}/message_templates`;
+  const all = [];
+  while (url) {
+    const res = await fetch(url, {
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(`Failed to list templates (HTTP ${res.status}): ${JSON.stringify(data)}`);
+    if (Array.isArray(data.data)) all.push(...data.data);
+    url = data.paging && data.paging.next ? data.paging.next : null;
+  }
+  return all;
 }
 
 // Checks the live API for whether a template with this name already
@@ -111,6 +130,39 @@ async function getTemplateStatus(name, accessToken) {
   } catch {
     return { exists: null };
   }
+}
+
+// Sends an already-approved template message to a real recipient. WhatsApp
+// Business API forbids business-initiated free-form text outside an active
+// customer-service session, so this is the only way to proactively notify
+// someone - it re-sends the template itself, filled with tpl.example values.
+async function sendTemplateMessage(tpl, to, accessToken) {
+  const payload = {
+    messaging_product: "whatsapp",
+    to,
+    type: "template",
+    template: {
+      name: tpl.name,
+      language: { code: LANGUAGE, policy: "deterministic" },
+    },
+  };
+  if (tpl.example && tpl.example.length > 0) {
+    payload.template.components = [
+      { type: "body", parameters: tpl.example.map((value) => ({ type: "text", text: String(value) })) },
+    ];
+  }
+
+  const res = await fetch(MESSAGES_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await res.json().catch(() => ({}));
+  return { ok: res.ok, status: res.status, data, payload };
 }
 
 // Decides whether to skip or create a template: the live API is the source
@@ -147,6 +199,8 @@ module.exports = {
   buildPayload,
   createTemplate,
   getTemplateStatus,
+  listAllTemplates,
+  sendTemplateMessage,
   resolveTemplate,
   sleep,
 };

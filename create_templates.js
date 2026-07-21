@@ -16,7 +16,7 @@
  * 1. Node.js 18+ (has global fetch built in — no extra installs needed)
  * 2. Copy .env.example to .env and fill in your real WABA ID + Sinch
  *    username/password (issued to you at onboarding)
- * 3. node --env-file=.env create_templates.js
+ * 3. node create_templates.js
  *
  * The script will:
  *   - Fetch a fresh access token
@@ -26,6 +26,13 @@
  */
 
 const fs = require("node:fs");
+
+// Loads .env from cwd automatically so plain `node create_templates.js` works,
+// not just `node --env-file=.env create_templates.js`. No-op if .env is missing.
+try {
+  process.loadEnvFile();
+} catch {}
+
 const { CONFIG, getAccessToken, resolveTemplate, sleep } = require("./lib.js");
 const templates = require("./templates.js");
 
@@ -41,7 +48,7 @@ async function main() {
   if (!CONFIG.WABA_ID || !CONFIG.USERNAME || !CONFIG.PASSWORD) {
     console.error(
       "\n❌ Missing WA_WABA_ID, WA_USERNAME, or WA_PASSWORD. Copy .env.example to .env, fill it in, " +
-        "and run with: node --env-file=.env create_templates.js\n"
+        "and run with: node create_templates.js\n"
     );
     process.exit(1);
   }
@@ -61,7 +68,16 @@ async function main() {
     try {
       const result = await resolveTemplate(tpl, accessToken, previouslySucceeded);
       if (result.skipped) {
-        console.log(`SKIPPED (${result.reason === "exists" ? "already exists on WhatsApp" : "assumed from previous results.json"})`);
+        if (result.reason === "exists") {
+          const existing = result.data && Array.isArray(result.data.data) ? result.data.data[0] : null;
+          console.log(
+            existing
+              ? `SKIPPED (already exists - id: ${existing.id || "n/a"}, status: ${existing.status || "UNKNOWN"})`
+              : "SKIPPED (already exists on WhatsApp)"
+          );
+        } else {
+          console.log("SKIPPED (assumed from previous results.json)");
+        }
       } else if (result.ok) {
         console.log(`OK (id: ${result.data.id || "n/a"}, status: ${result.data.status || "PENDING"})`);
       } else {

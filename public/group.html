@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group Contacts</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="wide">
+  <h1 id="groupTitle">Group Contacts</h1>
+  <p><a href="/groups.html">&larr; Back to Groups</a></p>
+
+  <input type="search" id="searchInput" placeholder="Search contacts (any column)..." />
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Country Code</th>
+        <th>MSISDN</th>
+        <th>Name of the Employee</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <p id="resultCount"></p>
+  <p id="emptyState" hidden>No contacts found for this group. Run <code>npm run scrape:contacts</code> first.</p>
+  <script src="/group.js"></script>
+</body>
+</html>
