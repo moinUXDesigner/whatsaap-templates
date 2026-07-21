@@ -1,0 +1,23 @@
+[
+  {
+    "templateid": "aarempticketraiseprod",
+    "app_name": "PMS",
+    "sms_template": "1777178409907112985 - Dear {#var#}, {#var#} {#var#} your ticket is forwarded to {#var#},{#var#}-APTRANSCO-GOVT AP",
+    "email_template": "Dear {#var#},  {#var#} {#var#} your ticket has been forwarded to {#var#}, {#var#} for further action. You will be informed when there is an update on your ticket. APTRANSCO – Government of Andhra Pradesh",
+    "whatsapp_template": "Dear {{1}},  {{2}} {{3}} your ticket has been forwarded to {{4}}, {{5}} for further action. You will be informed when there is an update on your ticket. APTRANSCO – Government of Andhra Pradesh"
+  },
+  {
+    "templateid": "aaradminticketrecievedprod",
+    "app_name": "PMS",
+    "sms_template": "1777178409916462869 - Dear {#var#},{#var#} you have received the ticket from {#var#},{#var#}{#var#}-APTRANSCO-GOVT AP",
+    "email_template": "Dear {#var#}, {#var#}, {#var#} you have received ticket from {#var#}, {#var#} for review and further action. Please log in to the APTRANSCO application to view the complete ticket details and update its status accordingly.\nAPTRANSCO – Government of Andhra Pradesh",
+    "whatsapp_template": "Dear {{1}}, {{2}}, {{3}} you have received ticket from {{4}}, {{5}} for review and further action. Please log in to the APTRANSCO application to view the complete ticket details and update its status accordingly.\nAPTRANSCO – Government of Andhra Pradesh"
+  },
+  {
+    "templateid": "aarticketstatus",
+    "app_name": "PMS",
+    "sms_template": "1777178409922714069 - Dear {#var#}, {#var#} {#var#} your ticket status is updated please check in Employee One PMS portal-APTRANSCO-GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} {#var#} your ticket status is updated please check in Employee One PMS portal-APTRANSCO-GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} {{3}} your ticket status is updated please check in Employee One PMS portal-APTRANSCO-GOVT AP"
+  }
+]

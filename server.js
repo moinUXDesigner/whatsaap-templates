@@ -17,7 +17,15 @@ try {
   process.loadEnvFile();
 } catch {}
 
-const { CONFIG, getAccessToken, getTemplateStatus, listAllTemplates, sendTemplateMessage, resolveTemplate, sleep } = require("./lib.js");
+const {
+  CONFIG,
+  getAccessToken,
+  getTemplateStatus,
+  listAllTemplates,
+  sendTemplateMessage,
+  resolveTemplate,
+  sleep,
+} = require("./lib.js");
 const templates = require("./templates.js");
 
 const PORT = Number(process.env.PORT) || 4173;
