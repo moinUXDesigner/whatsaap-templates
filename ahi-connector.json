@@ -1,0 +1,282 @@
+[
+  {
+    "templateid": "ahiportallive",
+    "app_name": "AHI",
+    "sms_template": "1777178409504286833 - Dear {#var#}, AHI Portal is the official APTRANSCO platform for transformer health records, test results, AHI grades and alerts. Please login at {#var#}, review your assets, and keep data updated for timely maintenance decisions. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, AHI Portal is the official APTRANSCO platform for transformer health records, test results, AHI grades and alerts. Please login at {#var#}, review your assets, and keep data updated for timely maintenance decisions. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, AHI Portal is the official APTRANSCO platform for transformer health records, test results, AHI grades and alerts. Please login at {{2}}, review your assets, and keep data updated for timely maintenance decisions. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahidataentrycoverage",
+    "app_name": "AHI",
+    "sms_template": "1777178409522556101 - Dear {#var#}, please enter pending previous transformer test data for {#var#} to complete AHI data-entry coverage. Accurate entries are required because grades, alerts and maintenance recommendations are generated from the submitted data. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, please enter pending previous transformer test data for {#var#} to complete AHI data-entry coverage. Accurate entries are required because grades, alerts and maintenance recommendations are generated from the submitted data. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, please enter pending previous transformer test data for {{2}} to complete AHI data-entry coverage. Accurate entries are required because grades, alerts and maintenance recommendations are generated from the submitted data. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalmaint",
+    "app_name": "AHI",
+    "sms_template": "1777178409543907596 - Dear {#var#}, AHI Portal will be under scheduled maintenance on {#var#} from {#var#} to {#var#}. Please save urgent work before the maintenance window. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, AHI Portal will be under scheduled maintenance on {#var#} from {#var#} to {#var#}. Please save urgent work before the maintenance window. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, AHI Portal will be under scheduled maintenance on {{2}} from {{3}} to {{4}}. Please save urgent work before the maintenance window. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalmaintnow",
+    "app_name": "AHI",
+    "sms_template": "1777178409559178836 - Dear {#var#}, AHI Portal is currently under maintenance. Normal service is expected by {#var#}. Please try again after restoration. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, AHI Portal is currently under maintenance. Normal service is expected by {#var#}. Please try again after restoration. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, AHI Portal is currently under maintenance. Normal service is expected by {{2}}. Please try again after restoration. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalrestart",
+    "app_name": "AHI",
+    "sms_template": "1777178409571636178 - Dear {#var#}, AHI Portal was restarted at {#var#} and is operational. If you were entering data, please re-check your last saved record. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, AHI Portal was restarted at {#var#} and is operational. If you were entering data, please re-check your last saved record. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, AHI Portal was restarted at {{2}} and is operational. If you were entering data, please re-check your last saved record. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahisubshutdown",
+    "app_name": "AHI",
+    "sms_template": "1777178409607858116 - Dear {#var#}, planned shutdown is scheduled at {#var#} on {#var#} from {#var#} to {#var#}. Coordinate testing and switching activities as approved. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, planned shutdown is scheduled at {#var#} on {#var#} from {#var#} to {#var#}. Coordinate testing and switching activities as approved. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, planned shutdown is scheduled at {{2}} on {{3}} from {{4}} to {{5}}. Coordinate testing and switching activities as approved. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradedalert",
+    "app_name": "AHI",
+    "sms_template": "1777178409633428047 - Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade D with {#var#} as the weak area. Recommendation: verify latest test results, inspect the equipment and schedule planned maintenance. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade D with {#var#} as the weak area. Recommendation: verify latest test results, inspect the equipment and schedule planned maintenance. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, PTR {{2}} at {{3}} has AHI Grade D with {{4}} as the weak area. Recommendation: verify latest test results, inspect the equipment and schedule planned maintenance. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradeealert",
+    "app_name": "AHI",
+    "sms_template": "1777178409662735991 - Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade E with {#var#} as the weak area. Recommendation: arrange priority inspection, confirm abnormal test results and update corrective action. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade E with {#var#} as the weak area. Recommendation: arrange priority inspection, confirm abnormal test results and update corrective action. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, PTR {{2}} at {{3}} has AHI Grade E with {{4}} as the weak area. Recommendation: arrange priority inspection, confirm abnormal test results and update corrective action. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradefalert",
+    "app_name": "AHI",
+    "sms_template": "1777178409692135931 - Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade F with {#var#} as the critical area. Recommendation: immediate engineering review, confirm critical tests and follow approved safety procedures. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, PTR {#var#} at {#var#} has AHI Grade F with {#var#} as the critical area. Recommendation: immediate engineering review, confirm critical tests and follow approved safety procedures. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, PTR {{2}} at {{3}} has AHI Grade F with {{4}} as the critical area. Recommendation: immediate engineering review, confirm critical tests and follow approved safety procedures. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestgradeadvice",
+    "app_name": "AHI",
+    "sms_template": "1777178409709050133 - Dear {#var#}, {#var#} test grade for PTR {#var#} at {#var#} is {#var#}. Recommendation: review the value and trend, repeat or confirm the test if abnormal, and record action taken. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} test grade for PTR {#var#} at {#var#} is {#var#}. Recommendation: review the value and trend, repeat or confirm the test if abnormal, and record action taken. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} test grade for PTR {{3}} at {{4}} is {{5}}. Recommendation: review the value and trend, repeat or confirm the test if abnormal, and record action taken. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiparamlimit",
+    "app_name": "AHI",
+    "sms_template": "1777178409726668338 - Dear {#var#}, {#var#} for PTR {#var#} at {#var#} has reached {#var#}. Recommendation: review the latest result, check trend history and take action as per standard. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} for PTR {#var#} at {#var#} has reached {#var#}. Recommendation: review the latest result, check trend history and take action as per standard. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} for PTR {{3}} at {{4}} has reached {{5}}. Recommendation: review the latest result, check trend history and take action as per standard. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigaslimit",
+    "app_name": "AHI",
+    "sms_template": "1777178409742406668 - Dear {#var#}, DGA gas alert: {#var#} for PTR {#var#} at {#var#} is above typical value with score {#var#}/5. Recommendation: review DGA trend and diagnose urgently. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, DGA gas alert: {#var#} for PTR {#var#} at {#var#} is above typical value with score {#var#}/5. Recommendation: review DGA trend and diagnose urgently. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, DGA gas alert: {{2}} for PTR {{3}} at {{4}} is above typical value with score {{5}}/5. Recommendation: review DGA trend and diagnose urgently. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahidesigngroup",
+    "app_name": "AHI",
+    "sms_template": "1777178409758523844 - Dear {#var#}, design group {#var#} alert: source PTR {#var#} has Grade F. Recommendation: verify sibling PTR {#var#} at {#var#} and review similar-risk test results. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, design group {#var#} alert: source PTR {#var#} has Grade F. Recommendation: verify sibling PTR {#var#} at {#var#} and review similar-risk test results. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, design group {{2}} alert: source PTR {{3}} has Grade F. Recommendation: verify sibling PTR {{4}} at {{5}} and review similar-risk test results. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestdue",
+    "app_name": "AHI",
+    "sms_template": "1777178409774575481 - Dear {#var#}, {#var#} test for PTR {#var#} at {#var#} is due by {#var#}. Please schedule the test and upload accurate results to the AHI Portal. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} test for PTR {#var#} at {#var#} is due by {#var#}. Please schedule the test and upload accurate results to the AHI Portal. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} test for PTR {{3}} at {{4}} is due by {{5}}. Please schedule the test and upload accurate results to the AHI Portal. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestoverdue",
+    "app_name": "AHI",
+    "sms_template": "1777178409789874582 - Dear {#var#}, {#var#} test for PTR {#var#} at {#var#} is overdue since {#var#}. Please arrange testing immediately and update accurate results in the AHI Portal. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} test for PTR {#var#} at {#var#} is overdue since {#var#}. Please arrange testing immediately and update accurate results in the AHI Portal. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} test for PTR {{3}} at {{4}} is overdue since {{5}}. Please arrange testing immediately and update accurate results in the AHI Portal. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahisampleupdated",
+    "app_name": "AHI",
+    "sms_template": "1777178409808854172 - Dear {#var#}, new {#var#} data was recorded for PTR {#var#} at {#var#} from {#var#}. Please review the updated result and AHI recommendation. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, new {#var#} data was recorded for PTR {#var#} at {#var#} from {#var#}. Please review the updated result and AHI recommendation. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, new {{2}} data was recorded for PTR {{3}} at {{4}} from {{5}}. Please review the updated result and AHI recommendation. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiescalation",
+    "app_name": "AHI",
+    "sms_template": "1777178409827000325 - Dear {#var#}, escalation: {#var#} alert for PTR {#var#} at {#var#} is pending for over {#var#} hours. Please review, act and acknowledge immediately. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, escalation: {#var#} alert for PTR {#var#} at {#var#} is pending for over {#var#} hours. Please review, act and acknowledge immediately. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, escalation: {{2}} alert for PTR {{3}} at {{4}} is pending for over {{5}} hours. Please review, act and acknowledge immediately. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahibroadcastinfo",
+    "app_name": "AHI",
+    "sms_template": "1777178409847458539 - Dear {#var#}, AHI Portal notice: {#var#} for {#var#}. {#var#}. Please check the portal for details. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, AHI Portal notice: {#var#} for {#var#}. {#var#}. Please check the portal for details. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, AHI Portal notice: {{2}} for {{3}}. {{4}}. Please check the portal for details. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitrippingalert",
+    "app_name": "AHI",
+    "sms_template": "1777178409863075521 - Dear {#var#}, tripping alert: PTR {#var#} at {#var#} tripped at {#var#}. Recommendation: inspect equipment, review relay/event details and update action in the AHI Portal. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, tripping alert: PTR {#var#} at {#var#} tripped at {#var#}. Recommendation: inspect equipment, review relay/event details and update action in the AHI Portal. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, tripping alert: PTR {{2}} at {{3}} tripped at {{4}}. Recommendation: inspect equipment, review relay/event details and update action in the AHI Portal. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiloadingalert",
+    "app_name": "AHI",
+    "sms_template": "1777178409878591675 - Dear {#var#}, loading alert: PTR {#var#} at {#var#} recorded {#var#}% loading during {#var#}. Recommendation: review loading trend and take approved corrective action. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, loading alert: PTR {#var#} at {#var#} recorded {#var#}% loading during {#var#}. Recommendation: review loading trend and take approved corrective action. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, loading alert: PTR {{2}} at {{3}} recorded {{4}}% loading during {{5}}. Recommendation: review loading trend and take approved corrective action. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportallive_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409513355696 - గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ ట్రాన్స్‌ఫార్మర్ ఆరోగ్య రికార్డులు, పరీక్ష ఫలితాలు, AHI గ్రేడ్‌లు మరియు అలర్ట్‌ల కోసం అధికారిక APTRANSCO వేదిక. దయచేసి {#var#} వద్ద లాగిన్ అయి మీ ఆస్తులను పరిశీలించి, సమయానుకూల నిర్వహణ నిర్ణయాల కోసం డేటాను నవీకరించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ ట్రాన్స్‌ఫార్మర్ ఆరోగ్య రికార్డులు, పరీక్ష ఫలితాలు, AHI గ్రేడ్‌లు మరియు అలర్ట్‌ల కోసం అధికారిక APTRANSCO వేదిక. దయచేసి {#var#} వద్ద లాగిన్ అయి మీ ఆస్తులను పరిశీలించి, సమయానుకూల నిర్వహణ నిర్ణయాల కోసం డేటాను నవీకరించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI పోర్టల్ ట్రాన్స్‌ఫార్మర్ ఆరోగ్య రికార్డులు, పరీక్ష ఫలితాలు, AHI గ్రేడ్‌లు మరియు అలర్ట్‌ల కోసం అధికారిక APTRANSCO వేదిక. దయచేసి {{2}} వద్ద లాగిన్ అయి మీ ఆస్తులను పరిశీలించి, సమయానుకూల నిర్వహణ నిర్ణయాల కోసం డేటాను నవీకరించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahidataentrycoverage_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409529315374 - గౌరవనీయులు {#var#} గారు, AHI డేటా ఎంట్రీ కవరేజ్ పూర్తి చేయడానికి {#var#} పరిధిలో పెండింగ్‌లో ఉన్న గత ట్రాన్స్‌ఫార్మర్ పరీక్ష డేటాను నమోదు చేయండి. సమర్పించిన డేటా ఆధారంగా గ్రేడ్‌లు, అలర్ట్‌లు మరియు నిర్వహణ సిఫార్సులు రూపొందుతాయి కాబట్టి ఖచ్చితమైన నమోదు అవసరం. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI డేటా ఎంట్రీ కవరేజ్ పూర్తి చేయడానికి {#var#} పరిధిలో పెండింగ్‌లో ఉన్న గత ట్రాన్స్‌ఫార్మర్ పరీక్ష డేటాను నమోదు చేయండి. సమర్పించిన డేటా ఆధారంగా గ్రేడ్‌లు, అలర్ట్‌లు మరియు నిర్వహణ సిఫార్సులు రూపొందుతాయి కాబట్టి ఖచ్చితమైన నమోదు అవసరం. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI డేటా ఎంట్రీ కవరేజ్ పూర్తి చేయడానికి {{2}} పరిధిలో పెండింగ్‌లో ఉన్న గత ట్రాన్స్‌ఫార్మర్ పరీక్ష డేటాను నమోదు చేయండి. సమర్పించిన డేటా ఆధారంగా గ్రేడ్‌లు, అలర్ట్‌లు మరియు నిర్వహణ సిఫార్సులు రూపొందుతాయి కాబట్టి ఖచ్చితమైన నమోదు అవసరం. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalmaint_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409552617051 - గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ {#var#} న {#var#} నుండి {#var#} వరకు షెడ్యూల్డ్ నిర్వహణలో ఉంటుంది. దయచేసి అత్యవసర పనులను నిర్వహణ సమయానికి ముందే సేవ్ చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ {#var#} న {#var#} నుండి {#var#} వరకు షెడ్యూల్డ్ నిర్వహణలో ఉంటుంది. దయచేసి అత్యవసర పనులను నిర్వహణ సమయానికి ముందే సేవ్ చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI పోర్టల్ {{2}} న {{3}} నుండి {{4}} వరకు షెడ్యూల్డ్ నిర్వహణలో ఉంటుంది. దయచేసి అత్యవసర పనులను నిర్వహణ సమయానికి ముందే సేవ్ చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalmaintnow_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409565374276 - గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ ప్రస్తుతం నిర్వహణలో ఉంది. సాధారణ సేవ {#var#} నాటికి పునరుద్ధరించబడే అవకాశం ఉంది. దయచేసి పునరుద్ధరణ తరువాత మళ్లీ ప్రయత్నించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ ప్రస్తుతం నిర్వహణలో ఉంది. సాధారణ సేవ {#var#} నాటికి పునరుద్ధరించబడే అవకాశం ఉంది. దయచేసి పునరుద్ధరణ తరువాత మళ్లీ ప్రయత్నించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI పోర్టల్ ప్రస్తుతం నిర్వహణలో ఉంది. సాధారణ సేవ {{2}} నాటికి పునరుద్ధరించబడే అవకాశం ఉంది. దయచేసి పునరుద్ధరణ తరువాత మళ్లీ ప్రయత్నించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiportalrestart_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409577792825 - గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ {#var#} కు రీస్టార్ట్ చేయబడింది మరియు ఇప్పుడు పనిచేస్తోంది. మీరు డేటా నమోదు చేస్తుంటే, చివరిగా సేవ్ చేసిన రికార్డును మరోసారి పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ {#var#} కు రీస్టార్ట్ చేయబడింది మరియు ఇప్పుడు పనిచేస్తోంది. మీరు డేటా నమోదు చేస్తుంటే, చివరిగా సేవ్ చేసిన రికార్డును మరోసారి పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI పోర్టల్ {{2}} కు రీస్టార్ట్ చేయబడింది మరియు ఇప్పుడు పనిచేస్తోంది. మీరు డేటా నమోదు చేస్తుంటే, చివరిగా సేవ్ చేసిన రికార్డును మరోసారి పరిశీలించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahisubshutdown_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409615876764 - గౌరవనీయులు {#var#} గారు, {#var#} వద్ద {#var#} న {#var#} నుండి {#var#} వరకు ప్రణాళికాబద్ధమైన షట్‌డౌన్ షెడ్యూల్ చేయబడింది. ఆమోదిత విధానాల ప్రకారం పరీక్షలు మరియు స్విచింగ్ కార్యకలాపాలను సమన్వయం చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} వద్ద {#var#} న {#var#} నుండి {#var#} వరకు ప్రణాళికాబద్ధమైన షట్‌డౌన్ షెడ్యూల్ చేయబడింది. ఆమోదిత విధానాల ప్రకారం పరీక్షలు మరియు స్విచింగ్ కార్యకలాపాలను సమన్వయం చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} వద్ద {{3}} న {{4}} నుండి {{5}} వరకు ప్రణాళికాబద్ధమైన షట్‌డౌన్ షెడ్యూల్ చేయబడింది. ఆమోదిత విధానాల ప్రకారం పరీక్షలు మరియు స్విచింగ్ కార్యకలాపాలను సమన్వయం చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradedalert_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409641861841 - గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ D గా ఉంది; బలహీన భాగం {#var#}. సిఫార్సు: తాజా పరీక్ష ఫలితాలను ధృవీకరించి, పరికరాన్ని తనిఖీ చేసి ప్రణాళికాబద్ధ నిర్వహణను షెడ్యూల్ చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ D గా ఉంది; బలహీన భాగం {#var#}. సిఫార్సు: తాజా పరీక్ష ఫలితాలను ధృవీకరించి, పరికరాన్ని తనిఖీ చేసి ప్రణాళికాబద్ధ నిర్వహణను షెడ్యూల్ చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} PTR, {{3}} వద్ద AHI గ్రేడ్ D గా ఉంది; బలహీన భాగం {{4}}. సిఫార్సు: తాజా పరీక్ష ఫలితాలను ధృవీకరించి, పరికరాన్ని తనిఖీ చేసి ప్రణాళికాబద్ధ నిర్వహణను షెడ్యూల్ చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradeealert_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409682501583 - గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ E గా ఉంది; బలహీన భాగం {#var#}. సిఫార్సు: ప్రాధాన్యతతో తనిఖీ ఏర్పాటు చేసి, అసాధారణ పరీక్ష ఫలితాలను ధృవీకరించి సరిదిద్దే చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ E గా ఉంది; బలహీన భాగం {#var#}. సిఫార్సు: ప్రాధాన్యతతో తనిఖీ ఏర్పాటు చేసి, అసాధారణ పరీక్ష ఫలితాలను ధృవీకరించి సరిదిద్దే చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} PTR, {{3}} వద్ద AHI గ్రేడ్ E గా ఉంది; బలహీన భాగం {{4}}. సిఫార్సు: ప్రాధాన్యతతో తనిఖీ ఏర్పాటు చేసి, అసాధారణ పరీక్ష ఫలితాలను ధృవీకరించి సరిదిద్దే చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigradefalert_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409699251643 - గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ F గా ఉంది; కీలక భాగం {#var#}. సిఫార్సు: వెంటనే ఇంజనీరింగ్ సమీక్ష చేసి, కీలక పరీక్షలను ధృవీకరించి, ఆమోదిత భద్రతా విధానాలను పాటించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద AHI గ్రేడ్ F గా ఉంది; కీలక భాగం {#var#}. సిఫార్సు: వెంటనే ఇంజనీరింగ్ సమీక్ష చేసి, కీలక పరీక్షలను ధృవీకరించి, ఆమోదిత భద్రతా విధానాలను పాటించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} PTR, {{3}} వద్ద AHI గ్రేడ్ F గా ఉంది; కీలక భాగం {{4}}. సిఫార్సు: వెంటనే ఇంజనీరింగ్ సమీక్ష చేసి, కీలక పరీక్షలను ధృవీకరించి, ఆమోదిత భద్రతా విధానాలను పాటించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestgradeadvice_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409718541963 - గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష గ్రేడ్ {#var#} PTR, {#var#} వద్ద {#var#} గా ఉంది. సిఫార్సు: విలువ మరియు ట్రెండ్‌ను పరిశీలించి, అసాధారణంగా ఉంటే పరీక్షను మళ్లీ చేయండి లేదా ధృవీకరించండి, తీసుకున్న చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష గ్రేడ్ {#var#} PTR, {#var#} వద్ద {#var#} గా ఉంది. సిఫార్సు: విలువ మరియు ట్రెండ్‌ను పరిశీలించి, అసాధారణంగా ఉంటే పరీక్షను మళ్లీ చేయండి లేదా ధృవీకరించండి, తీసుకున్న చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} పరీక్ష గ్రేడ్ {{3}} PTR, {{4}} వద్ద {{5}} గా ఉంది. సిఫార్సు: విలువ మరియు ట్రెండ్‌ను పరిశీలించి, అసాధారణంగా ఉంటే పరీక్షను మళ్లీ చేయండి లేదా ధృవీకరించండి, తీసుకున్న చర్యను నమోదు చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiparamlimit_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409734429005 - గౌరవనీయులు {#var#} గారు, {#var#}, {#var#} PTR, {#var#} వద్ద {#var#} స్థాయికి చేరింది. సిఫార్సు: తాజా ఫలితం మరియు ట్రెండ్ చరిత్రను పరిశీలించి ప్రమాణాల ప్రకారం చర్య తీసుకోండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#}, {#var#} PTR, {#var#} వద్ద {#var#} స్థాయికి చేరింది. సిఫార్సు: తాజా ఫలితం మరియు ట్రెండ్ చరిత్రను పరిశీలించి ప్రమాణాల ప్రకారం చర్య తీసుకోండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}}, {{3}} PTR, {{4}} వద్ద {{5}} స్థాయికి చేరింది. సిఫార్సు: తాజా ఫలితం మరియు ట్రెండ్ చరిత్రను పరిశీలించి ప్రమాణాల ప్రకారం చర్య తీసుకోండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahigaslimit_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409750755820 - గౌరవనీయులు {#var#} గారు, DGA గ్యాస్ అలర్ట్: {#var#}, {#var#} PTR, {#var#} వద్ద సాధారణ విలువకు మించి ఉంది; స్కోర్ {#var#}/5. సిఫార్సు: DGA ట్రెండ్‌ను పరిశీలించి అత్యవసరంగా నిర్ధారణ చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, DGA గ్యాస్ అలర్ట్: {#var#}, {#var#} PTR, {#var#} వద్ద సాధారణ విలువకు మించి ఉంది; స్కోర్ {#var#}/5. సిఫార్సు: DGA ట్రెండ్‌ను పరిశీలించి అత్యవసరంగా నిర్ధారణ చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, DGA గ్యాస్ అలర్ట్: {{2}}, {{3}} PTR, {{4}} వద్ద సాధారణ విలువకు మించి ఉంది; స్కోర్ {{5}}/5. సిఫార్సు: DGA ట్రెండ్‌ను పరిశీలించి అత్యవసరంగా నిర్ధారణ చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahidesigngroup_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409766933351 - గౌరవనీయులు {#var#} గారు, డిజైన్ గ్రూప్ {#var#} అలర్ట్: మూల PTR {#var#} గ్రేడ్ F లో ఉంది. సిఫార్సు: {#var#} వద్ద ఉన్న సహోదర PTR {#var#} ను పరిశీలించి సమాన ప్రమాద పరీక్ష ఫలితాలను సమీక్షించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, డిజైన్ గ్రూప్ {#var#} అలర్ట్: మూల PTR {#var#} గ్రేడ్ F లో ఉంది. సిఫార్సు: {#var#} వద్ద ఉన్న సహోదర PTR {#var#} ను పరిశీలించి సమాన ప్రమాద పరీక్ష ఫలితాలను సమీక్షించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, డిజైన్ గ్రూప్ {{2}} అలర్ట్: మూల PTR {{3}} గ్రేడ్ F లో ఉంది. సిఫార్సు: {{4}} వద్ద ఉన్న సహోదర PTR {{5}} ను పరిశీలించి సమాన ప్రమాద పరీక్ష ఫలితాలను సమీక్షించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestdue_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409782330774 - గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష {#var#} PTR, {#var#} వద్ద {#var#} లోపు చేయవలసి ఉంది. దయచేసి పరీక్షను షెడ్యూల్ చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో అప్‌లోడ్ చేయండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష {#var#} PTR, {#var#} వద్ద {#var#} లోపు చేయవలసి ఉంది. దయచేసి పరీక్షను షెడ్యూల్ చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో అప్‌లోడ్ చేయండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} పరీక్ష {{3}} PTR, {{4}} వద్ద {{5}} లోపు చేయవలసి ఉంది. దయచేసి పరీక్షను షెడ్యూల్ చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో అప్‌లోడ్ చేయండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitestoverdue_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409800573301 - గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష {#var#} PTR, {#var#} వద్ద {#var#} నుండి ఆలస్యమైంది. దయచేసి వెంటనే పరీక్షను ఏర్పాటు చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} పరీక్ష {#var#} PTR, {#var#} వద్ద {#var#} నుండి ఆలస్యమైంది. దయచేసి వెంటనే పరీక్షను ఏర్పాటు చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} పరీక్ష {{3}} PTR, {{4}} వద్ద {{5}} నుండి ఆలస్యమైంది. దయచేసి వెంటనే పరీక్షను ఏర్పాటు చేసి ఖచ్చితమైన ఫలితాలను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahisampleupdated_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409816311857 - గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద {#var#} డేటా {#var#} ద్వారా నమోదు చేయబడింది. దయచేసి నవీకరించిన ఫలితం మరియు AHI సిఫార్సును పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, {#var#} PTR, {#var#} వద్ద {#var#} డేటా {#var#} ద్వారా నమోదు చేయబడింది. దయచేసి నవీకరించిన ఫలితం మరియు AHI సిఫార్సును పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, {{2}} PTR, {{3}} వద్ద {{4}} డేటా {{5}} ద్వారా నమోదు చేయబడింది. దయచేసి నవీకరించిన ఫలితం మరియు AHI సిఫార్సును పరిశీలించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiescalation_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409835469895 - గౌరవనీయులు {#var#} గారు, ఎస్కలేషన్: {#var#} అలర్ట్ {#var#} PTR, {#var#} వద్ద {#var#} గంటలకు పైగా పెండింగ్‌లో ఉంది. దయచేసి వెంటనే పరిశీలించి చర్య తీసుకొని అంగీకరించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, ఎస్కలేషన్: {#var#} అలర్ట్ {#var#} PTR, {#var#} వద్ద {#var#} గంటలకు పైగా పెండింగ్‌లో ఉంది. దయచేసి వెంటనే పరిశీలించి చర్య తీసుకొని అంగీకరించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, ఎస్కలేషన్: {{2}} అలర్ట్ {{3}} PTR, {{4}} వద్ద {{5}} గంటలకు పైగా పెండింగ్‌లో ఉంది. దయచేసి వెంటనే పరిశీలించి చర్య తీసుకొని అంగీకరించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahibroadcastinfo_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409855033475 - గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ సమాచారం: {#var#}, {#var#} కోసం. {#var#}. వివరాల కోసం దయచేసి పోర్టల్‌ను పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, AHI పోర్టల్ సమాచారం: {#var#}, {#var#} కోసం. {#var#}. వివరాల కోసం దయచేసి పోర్టల్‌ను పరిశీలించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, AHI పోర్టల్ సమాచారం: {{2}}, {{3}} కోసం. {{4}}. వివరాల కోసం దయచేసి పోర్టల్‌ను పరిశీలించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahitrippingalert_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409870629137 - గౌరవనీయులు {#var#} గారు, ట్రిప్పింగ్ అలర్ట్: {#var#} PTR, {#var#} వద్ద {#var#} కు ట్రిప్ అయింది. సిఫార్సు: పరికరాన్ని తనిఖీ చేసి, రిలే/ఈవెంట్ వివరాలను సమీక్షించి చర్యను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, ట్రిప్పింగ్ అలర్ట్: {#var#} PTR, {#var#} వద్ద {#var#} కు ట్రిప్ అయింది. సిఫార్సు: పరికరాన్ని తనిఖీ చేసి, రిలే/ఈవెంట్ వివరాలను సమీక్షించి చర్యను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, ట్రిప్పింగ్ అలర్ట్: {{2}} PTR, {{3}} వద్ద {{4}} కు ట్రిప్ అయింది. సిఫార్సు: పరికరాన్ని తనిఖీ చేసి, రిలే/ఈవెంట్ వివరాలను సమీక్షించి చర్యను AHI పోర్టల్‌లో నవీకరించండి. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ahiloadingalert_te",
+    "app_name": "AHI",
+    "sms_template": "1777178409886299560 - గౌరవనీయులు {#var#} గారు, లోడింగ్ అలర్ట్: {#var#} PTR, {#var#} వద్ద {#var#}% లోడింగ్ {#var#} సమయంలో నమోదైంది. సిఫార్సు: లోడింగ్ ట్రెండ్‌ను పరిశీలించి ఆమోదిత సరిదిద్దే చర్య తీసుకోండి. - APTRANSCO - GOVT AP",
+    "email_template": "గౌరవనీయులు {#var#} గారు, లోడింగ్ అలర్ట్: {#var#} PTR, {#var#} వద్ద {#var#}% లోడింగ్ {#var#} సమయంలో నమోదైంది. సిఫార్సు: లోడింగ్ ట్రెండ్‌ను పరిశీలించి ఆమోదిత సరిదిద్దే చర్య తీసుకోండి. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "గౌరవనీయులు {{1}} గారు, లోడింగ్ అలర్ట్: {{2}} PTR, {{3}} వద్ద {{4}}% లోడింగ్ {{5}} సమయంలో నమోదైంది. సిఫార్సు: లోడింగ్ ట్రెండ్‌ను పరిశీలించి ఆమోదిత సరిదిద్దే చర్య తీసుకోండి. - APTRANSCO - GOVT AP"
+  }
+]
