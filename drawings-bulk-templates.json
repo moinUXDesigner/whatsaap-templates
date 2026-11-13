@@ -1,0 +1,38 @@
+[
+  {
+    "templateid": "vendorddum",
+    "sms_template": "1777178642991745479 - Dear {#var#}, Your Drawing & Document against PO.No {#var#} dated {#var#} is successfully upload and submitted successfully {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Your Drawing & Document against PO.No {#var#} dated {#var#} is successfully upload and submitted successfully {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Your Drawing & Document against PO.No {{2}} dated {{3}} is successfully upload and submitted successfully {{4}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "employeereceiptmessage",
+    "sms_template": "1777178643011724096 - Dear {#var#},{#var#},The {#var#}, submitted {#var#}, dated {#var#} Drawing & Document for Approvals. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#}, The {#var#}, submitted {#var#}, dated {#var#} Drawing & Document for Approvals. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}}, The {{3}}, submitted {{4}}, dated {{5}} Drawing & Document for Approvals. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vendorrm",
+    "sms_template": "1777178643039647726 - Dear {#var#}, Your Drawing or Document against PO.No {#var#}, dated {#var#} is received and {#var#} and forwarded for {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Your Drawing or Document against PO.No {#var#}, dated {#var#} is received and {#var#} and forwarded for {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Your Drawing or Document against PO.No {{2}}, dated {{3}} is received and {{4}} and forwarded for {{5}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "erm",
+    "sms_template": "1777178643056776720 - Dear {#var#}, {#var#}, The{#var#} Drawing or Document against PO.No {#var#} , Date {#var#} received from {#var#} and forwarded for {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#}, The {#var#} Drawing or Document against PO.No {#var#}, Date {#var#} received from {#var#} and forwarded for {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}}, The {{3}} Drawing or Document against PO.No {{4}}, Date {{5}} received from {{6}} and forwarded for {{7}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "vrm",
+    "sms_template": "1777178643070870797 - Dear {#var#}, Your Drawing or Document against PO.No{#var#}, dated {#var#} has been approved by {#var#}, {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Your Drawing or Document against PO.No {#var#}, dated {#var#} has been approved by {#var#}, {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Your Drawing or Document against PO.No {{2}}, dated {{3}} has been approved by {{4}}, {{5}}. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "employeerm",
+    "sms_template": "1777178643151358379 - Dear {#var#}, {#var#}, The {#var#} Drawing or Document against PO.No. {#var#} ,Dated {#var#} has been approved by {#var#}, {#var#}. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#}, The {#var#} Drawing or Document against PO.No. {#var#}, Dated {#var#} has been approved by {#var#}, {#var#}. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}}, The {{3}} Drawing or Document against PO.No. {{4}}, Dated {{5}} has been approved by {{6}}, {{7}}. - APTRANSCO - GOVT AP"
+  }
+]

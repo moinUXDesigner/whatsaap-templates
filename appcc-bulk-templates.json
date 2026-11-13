@@ -1,0 +1,52 @@
+[
+  {
+    "templateid": "appccvendorloginotpauth",
+    "app_name": "APPCC",
+    "category": "Authentication",
+    "sms_template": "APPCC Portal: Your OTP for login is {#var#}. This OTP is valid for {#var#} minutes. Do not share this OTP with anyone. - APPCC-GOVTAP",
+    "email_template": "APPCC Portal: Your OTP for login is {#var#}. This OTP is valid for {#var#} minutes. Do not share this OTP with anyone. - APPCC-GOVTAP",
+    "whatsapp_template": "{{1}} is your verification code. For your security, do not share this code.",
+    "whatsapp_otp": {
+      "expiryMinutes": 10,
+      "otpType": "COPY_CODE",
+      "buttonText": "Copy code"
+    }
+  },
+  {
+    "templateid": "appccforgotpasswordotpauth",
+    "app_name": "APPCC",
+    "category": "Authentication",
+    "sms_template": "APPCC Portal: Your OTP to reset your password is {#var#}. This OTP is valid for {#var#} minutes. Do not share this OTP with anyone. - APPCC-GOVTAP",
+    "email_template": "APPCC Portal: Your OTP to reset your password is {#var#}. This OTP is valid for {#var#} minutes. Do not share this OTP with anyone. - APPCC-GOVTAP",
+    "whatsapp_template": "{{1}} is your verification code. For your security, do not share this code.",
+    "whatsapp_otp": {
+      "expiryMinutes": 10,
+      "otpType": "COPY_CODE",
+      "buttonText": "Copy code"
+    }
+  },
+  {
+    "templateid": "appccinvoiceaccepted",
+    "app_name": "APPCC",
+    "category": "Utility",
+    "sms_template": "APPCC: Your Invoice {#var#} for {#var#} has been accepted. Further processing will continue as per procedure. - APPCC-GOVTAP",
+    "email_template": "APPCC: Your Invoice {#var#} for {#var#} has been accepted. Further processing will continue as per procedure. - APPCC-GOVTAP",
+    "whatsapp_template": "APPCC: Your Invoice {{1}} for {{2}} has been accepted. Further processing will continue as per procedure. - APPCC-GOVTAP"
+  },
+  {
+    "templateid": "appccinvoicerejected",
+    "app_name": "APPCC",
+    "category": "Utility",
+    "sms_template": "APPCC: Your Invoice {#var#} for {#var#} has been rejected. Please check the vendor portal for details and resubmit after correction. - APPCC-GOVTAP",
+    "email_template": "APPCC: Your Invoice {#var#} for {#var#} has been rejected. Please check the vendor portal for details and resubmit after correction. - APPCC-GOVTAP",
+    "whatsapp_template": "APPCC: Your Invoice {{1}} for {{2}} has been rejected. Please check the vendor portal for details and resubmit after correction. - APPCC-GOVTAP"
+  },
+  {
+    "templateid": "appccloagenerated",
+    "app_name": "APPCC",
+    "category": "Utility",
+    "sms_template": "APPCC: The Letter of Authorization (LOA): {#var#} for Invoice {#var#}, pertaining to the billing period {#var#}, has been successfully generated. LOA Amount: {#var#}. Please log in to the APPCC Vendor Portal to view the LOA details. - APPCC-GOVTAP",
+    "email_template": "APPCC: The Letter of Authorization (LOA): {#var#} for Invoice {#var#}, pertaining to the billing period {#var#}, has been successfully generated. LOA Amount: {#var#}. Please log in to the APPCC Vendor Portal to view the LOA details. - APPCC-GOVTAP",
+    "whatsapp_template": "APPCC: The Letter of Authorization (LOA): {{1}} for Invoice {{2}}, pertaining to the billing period {{3}}, has been successfully generated. LOA Amount: {{4}}. Please log in to the APPCC Vendor Portal to view the LOA details. - APPCC-GOVTAP"
+  }
+]

@@ -3,3 +3,6 @@ results.json
 node_modules/
 .auth/
 data/
+
+# Postman export - contains the live service-account password and bearer tokens
+aclchatbot.postman_collection.json

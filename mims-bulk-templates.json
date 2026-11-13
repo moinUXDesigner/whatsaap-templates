@@ -1,0 +1,14 @@
+[
+  {
+    "templateid": "mimsinspectionraised",
+    "sms_template": "APTRANSCO: MIMS Call Ref No. {#var#} for {#var#} inspection has been raised and assigned to {#var#}. {#var#} - GOVT AP",
+    "email_template": "APTRANSCO: MIMS Call Ref No. {#var#} for {#var#} inspection has been raised and assigned to {#var#}. {#var#} - GOVT AP",
+    "whatsapp_template": "APTRANSCO: MIMS Call Ref No. {{1}} for {{2}} inspection has been raised and assigned to {{3}}. {{4}} - GOVT AP"
+  },
+  {
+    "templateid": "mimsinspectionclosed",
+    "sms_template": "APTRANSCO: MIMS Call Ref No. {#var#} for {#var#} inspection conducted on {#var#} has been completed. Inspection Status: {#var#}. - GOVT AP",
+    "email_template": "APTRANSCO: MIMS Call Ref No. {#var#} for {#var#} inspection conducted on {#var#} has been completed. Inspection Status: {#var#}. - GOVT AP",
+    "whatsapp_template": "APTRANSCO: MIMS Call Ref No. {{1}} for {{2}} inspection conducted on {{3}} has been completed. Inspection Status: {{4}}. - GOVT AP"
+  }
+]

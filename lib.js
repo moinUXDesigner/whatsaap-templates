@@ -26,12 +26,21 @@ const CONFIG = {
 
 const { TOKEN_URL, BASE_URL, MESSAGES_URL } = ENDPOINTS[ENV];
 
-// All templates are transactional bill-status notifications -> Utility category
-// (ACL/Sinch docs use Title-case enum values: "Marketing" / "Utility")
-const CATEGORY = "Utility";
+// Category is per-template (templates.js sets `category`); bill-status
+// notifications are Utility, OTP templates are Authentication.
+// ACL/Sinch docs use Title-case enum values: "Marketing" / "Utility" / "Authentication".
+const DEFAULT_CATEGORY = "Utility";
 const LANGUAGE = "en";
 
 async function getAccessToken() {
+  const missing = ["USERNAME", "PASSWORD"].filter((k) => !CONFIG[k]);
+  if (missing.length) {
+    throw new Error(
+      `Missing ${missing.map((k) => "WA_" + k).join(" and ")} in .env - the token request would be ` +
+        `rejected as "Invalid user credentials" without saying why.`
+    );
+  }
+
   const body = new URLSearchParams({
     grant_type: "password",
     client_id: "ipmessaging-client",
@@ -50,12 +59,66 @@ async function getAccessToken() {
 
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.access_token) {
+    // Keycloak answers both "no such user" and "wrong password" with the same
+    // opaque invalid_grant, so spell out what to actually check.
+    if (data.error === "invalid_grant") {
+      throw new Error(
+        `Auth rejected the ${ENV} credentials for WA_USERNAME="${CONFIG.USERNAME}" (HTTP ${res.status} ` +
+          `invalid_grant). WA_USERNAME must be the Sinch/ACL API service-account username issued at ` +
+          `onboarding - not a Smartta portal login - and WA_PASSWORD its password. Also confirm WA_ENV ` +
+          `(currently "${ENV}") matches the environment the account belongs to.`
+      );
+    }
     throw new Error(`Failed to get access token (HTTP ${res.status}): ${JSON.stringify(data)}`);
   }
   return data.access_token;
 }
 
-function buildPayload(tpl) {
+// Authentication templates use a rigid schema that shares almost nothing with
+// the other categories: Meta owns the copy ("<CODE> is your verification
+// code."), so the BODY carries no `text` and no `example`, the expiry is
+// declared structurally instead of as a {{n}} placeholder, and exactly one OTP
+// button is mandatory. `allow_category_change` is not applicable here either -
+// sending any of that is what earns a 400 / error code 100.
+function buildAuthPayload(tpl) {
+  const otp = tpl.otp || {};
+  const components = [
+    {
+      type: "BODY",
+      // Appends "For your security, do not share this code." to Meta's copy.
+      add_security_recommendation: otp.securityRecommendation !== false,
+    },
+  ];
+
+  if (otp.expiryMinutes != null) {
+    const minutes = Number(otp.expiryMinutes);
+    if (!Number.isInteger(minutes) || minutes < 1 || minutes > 90) {
+      throw new Error(
+        `Template "${tpl.name}": otp.expiryMinutes must be an integer between 1 and 90 ` +
+          `(got ${JSON.stringify(otp.expiryMinutes)}). Meta rejects anything outside that range.`
+      );
+    }
+    components.push({ type: "FOOTER", code_expiration_minutes: minutes });
+  }
+
+  const button = { type: "OTP", otp_type: otp.otpType || "COPY_CODE", text: otp.buttonText || "Copy code" };
+  // ONE_TAP/ZERO_TAP autofill needs the Android app identity; COPY_CODE does not.
+  if (button.otp_type !== "COPY_CODE") {
+    if (!otp.packageName || !otp.signatureHash) {
+      throw new Error(
+        `Template "${tpl.name}": otp_type "${button.otp_type}" requires otp.packageName and ` +
+          `otp.signatureHash (the Android app's package name and signing-key hash).`
+      );
+    }
+    button.package_name = otp.packageName;
+    button.signature_hash = otp.signatureHash;
+  }
+  components.push({ type: "BUTTONS", buttons: [button] });
+
+  return { name: tpl.name, language: LANGUAGE, category: "Authentication", components };
+}
+
+function buildStandardPayload(tpl, category) {
   const bodyComponent = { type: "BODY", text: tpl.body };
   // Meta rejects an `example` on a BODY with no {{n}} placeholders - only attach
   // it when there's at least one variable to fill.
@@ -66,10 +129,15 @@ function buildPayload(tpl) {
   return {
     name: tpl.name,
     language: LANGUAGE,
-    category: CATEGORY,
+    category,
     allow_category_change: true, // lets Meta auto-correct category instead of rejecting outright
     components: [bodyComponent],
   };
+}
+
+function buildPayload(tpl) {
+  const category = tpl.category || DEFAULT_CATEGORY;
+  return category === "Authentication" ? buildAuthPayload(tpl) : buildStandardPayload(tpl, category);
 }
 
 async function createTemplate(tpl, accessToken) {
@@ -146,7 +214,16 @@ async function sendTemplateMessage(tpl, to, accessToken) {
       language: { code: LANGUAGE, policy: "deterministic" },
     },
   };
-  if (tpl.example && tpl.example.length > 0) {
+  if ((tpl.category || DEFAULT_CATEGORY) === "Authentication") {
+    // Authentication sends take exactly one variable - the code - and it has to
+    // be repeated as the OTP button's parameter, or the copy/autofill button
+    // has nothing to hand back to the app.
+    const code = String((tpl.example && tpl.example[0]) || "");
+    payload.template.components = [
+      { type: "body", parameters: [{ type: "text", text: code }] },
+      { type: "button", sub_type: "url", index: "0", parameters: [{ type: "text", text: code }] },
+    ];
+  } else if (tpl.example && tpl.example.length > 0) {
     payload.template.components = [
       { type: "body", parameters: tpl.example.map((value) => ({ type: "text", text: String(value) })) },
     ];
