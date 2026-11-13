@@ -296,7 +296,14 @@ const server = http.createServer((req, res) => {
             category: t.category,
             language: t.language,
             id: t.id,
-            body: body ? body.text : "",
+            components: t.components || [],
+            rejected_reason: t.rejected_reason || null,
+            quality_score: t.quality_score || null,
+            // Authentication templates carry no BODY text - Meta generates and
+            // localizes the copy - so say that rather than showing a blank cell.
+            body: (body && body.text) || (String(t.category || "").toUpperCase() === "AUTHENTICATION"
+              ? "(Meta-generated authentication copy)"
+              : ""),
           };
         });
         res.writeHead(200, { "Content-Type": "application/json" });

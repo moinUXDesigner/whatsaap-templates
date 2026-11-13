@@ -1,0 +1,86 @@
+[
+  {
+    "templateid": "slareminderholder",
+    "app_name": "BTS",
+    "sms_template": "1777179380264693229 - Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} is pending with you and has exceeded the prescribed SLA by {#var#} day(s). Kindly take necessary action for early processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} is pending with you and has exceeded the prescribed SLA by {#var#} day(s). Kindly take necessary action for early processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Bill No. {{2}} pertaining to vendor {{3}} is pending with you and has exceeded the prescribed SLA by {{4}} day(s). Kindly take necessary action for early processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "slaescalationnextlevel",
+    "app_name": "BTS",
+    "sms_template": "1777179380280460018 - Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} pending with {#var#} has exceeded the prescribed SLA by {#var#} day(s). The same is brought to your notice for necessary follow-up and early disposal. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} pending with {#var#} has exceeded the prescribed SLA by {#var#} day(s). The same is brought to your notice for necessary follow-up and early disposal. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Bill No. {{2}} pertaining to vendor {{3}} pending with {{4}} has exceeded the prescribed SLA by {{5}} day(s). The same is brought to your notice for necessary follow-up and early disposal. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "slareminderaccountshq",
+    "app_name": "BTS",
+    "sms_template": "1777179380293838767 - Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} is pending at Accounts-HQ for LOA approval and payment release and has exceeded the prescribed SLA by {#var#} day(s). Kindly follow up for early release. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} is pending at Accounts-HQ for LOA approval and payment release and has exceeded the prescribed SLA by {#var#} day(s). Kindly follow up for early release. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Bill No. {{2}} pertaining to vendor {{3}} is pending at Accounts-HQ for LOA approval and payment release and has exceeded the prescribed SLA by {{4}} day(s). Kindly follow up for early release. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "billholdvendornotice",
+    "app_name": "BTS",
+    "sms_template": "1777179380319035203 - Dear {#var#}, your Bill No. {#var#} has been kept on hold by {#var#}, {#var#}. Reason: {#var#}. Remarks: {#var#}. You are requested to submit the corrected/required document(s) at the earliest so that the bill can be taken up for further processing and payment. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, your Bill No. {#var#} has been kept on hold by {#var#}, {#var#}. Reason: {#var#}. Remarks: {#var#}. You are requested to submit the corrected/required document(s) at the earliest so that the bill can be taken up for further processing and payment. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, your Bill No. {{2}} has been kept on hold by {{3}}, {{4}}. Reason: {{5}}. Remarks: {{6}}. You are requested to submit the corrected/required document(s) at the earliest so that the bill can be taken up for further processing and payment. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "billholdofficernotice",
+    "app_name": "BTS",
+    "sms_template": "Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} has been kept on hold by {#var#}, {#var#}. {#var#}. The concerned officer is requested to take necessary action to facilitate further processing of the bill. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, Bill No. {#var#} pertaining to vendor {#var#} has been kept on hold by {#var#}, {#var#}. {#var#}. The concerned officer is requested to take necessary action to facilitate further processing of the bill. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, Bill No. {{2}} pertaining to vendor {{3}} has been kept on hold by {{4}}, {{5}}. {{6}}. The concerned officer is requested to take necessary action to facilitate further processing of the bill. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "billholdremovedvendor",
+    "app_name": "BTS",
+    "sms_template": "1777179380422543914 - Dear {#var#}, the hold on your Bill No. {#var#} has been removed by {#var#}, {#var#}. The bill has resumed normal processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, the hold on your Bill No. {#var#} has been removed by {#var#}, {#var#}. The bill has resumed normal processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, the hold on your Bill No. {{2}} has been removed by {{3}}, {{4}}. The bill has resumed normal processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "billholdremovedofficer",
+    "app_name": "BTS",
+    "sms_template": "1777179380445753241 - Dear {#var#}, the hold on Bill No. {#var#} pertaining to vendor {#var#} has been removed by {#var#}, {#var#}. The bill has resumed normal processing. - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, the hold on Bill No. {#var#} pertaining to vendor {#var#} has been removed by {#var#}, {#var#}. The bill has resumed normal processing. - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, the hold on Bill No. {{2}} pertaining to vendor {{3}} has been removed by {{4}}, {{5}}. The bill has resumed normal processing. - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "ageingbillsover30days",
+    "app_name": "BTS",
+    "sms_template": "1777179380481544199 - Dear {#var#}, {#var#} bill(s) in {#var#} have been pending for more than 30 days. Download the list: {#var#} - APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, {#var#} bill(s) in {#var#} have been pending for more than 30 days. Download the list: {#var#} - APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, {{2}} bill(s) in {{3}} have been pending for more than 30 days. Download the list: {{4}} - APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "bgexpiryvendor",
+    "app_name": "BTS",
+    "sms_template": "1777179380500073086 - Dear M/S {#var#}, your Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please extend validity well before the expiry date as per the purchase order terms and condition- APTRANSCO - GOVT AP",
+    "email_template": "Dear M/S {#var#}, your Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please extend validity well before the expiry date as per the purchase order terms and condition- APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear M/S {{1}}, your Bank Guarantee No. {{2}}, Pertaining to the Purchase order No. {{3}} is due to expire on {{4}}. Please extend validity well before the expiry date as per the purchase order terms and condition- APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "bgexpiryofficer",
+    "app_name": "BTS",
+    "sms_template": "1777179380519014698 - Dear {#var#}, The Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please pursue M/S {#var#} to extend validity well before the expiry date- APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, The Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please pursue M/S {#var#} to extend validity well before the expiry date- APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, The Bank Guarantee No. {{2}}, Pertaining to the Purchase order No. {{3}} is due to expire on {{4}}. Please pursue M/S {{5}} to extend validity well before the expiry date- APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "bgexpiryvendorurgent",
+    "app_name": "BTS",
+    "sms_template": "1777179380537008295 - Dear M/S {#var#}, your Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please extend validity immediately, as per the purchase order terms and conditions, to avoid delay in processing your bills- APTRANSCO - GOVT AP",
+    "email_template": "Dear M/S {#var#}, your Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please extend validity immediately, as per the purchase order terms and conditions, to avoid delay in processing your bills- APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear M/S {{1}}, your Bank Guarantee No. {{2}}, Pertaining to the Purchase order No. {{3}} is due to expire on {{4}}. Please extend validity immediately, as per the purchase order terms and conditions, to avoid delay in processing your bills- APTRANSCO - GOVT AP"
+  },
+  {
+    "templateid": "bgexpiryofficerurgent",
+    "app_name": "BTS",
+    "sms_template": "1777179380556390568 - Dear {#var#}, The Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please pursue M/S {#var#} immediately, to extend validity, to avoid delay in processing of bills- APTRANSCO - GOVT AP",
+    "email_template": "Dear {#var#}, The Bank Guarantee No. {#var#}, Pertaining to the Purchase order No. {#var#} is due to expire on {#var#}. Please pursue M/S {#var#} immediately, to extend validity, to avoid delay in processing of bills- APTRANSCO - GOVT AP",
+    "whatsapp_template": "Dear {{1}}, The Bank Guarantee No. {{2}}, Pertaining to the Purchase order No. {{3}} is due to expire on {{4}}. Please pursue M/S {{5}} immediately, to extend validity, to avoid delay in processing of bills- APTRANSCO - GOVT AP"
+  }
+]
